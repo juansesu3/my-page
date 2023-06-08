@@ -1,7 +1,8 @@
-import React from 'react'
+import React from 'react';
+import styles from './page.module.css';
 const Contacto = () => {
   return (
-  <div>Contacto-Page</div>
+  <div className={styles.container}>Contacto-Page</div>
   );
 };
 

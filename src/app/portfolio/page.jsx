@@ -1,7 +1,7 @@
-
+import styles from './page.module.css';
 const Portfolio = () => {
   return (
-    <div>Portfolio</div>
+    <div className={styles.container}>Portfolio</div>
   )
 }
 
