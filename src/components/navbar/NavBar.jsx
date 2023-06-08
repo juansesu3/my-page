@@ -16,7 +16,7 @@ const links = [
   },
   {
     slug: 3,
-    title: "Blo",
+    title: "Blog",
     url: "/blog",
   },
   {
