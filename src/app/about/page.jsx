@@ -1,55 +1,59 @@
 import React from "react";
 import styles from "./page.module.css";
 import Image from "next/image";
+import Button from "@/components/button/Button";
 
 const About = () => {
   return (
     <div className={styles.container}>
-      <div className={styles.imgcontainer}>
+      <div className={styles.imgContainer}>
         <Image
-          src="https://juan-sesu-ecommerce.s3.amazonaws.com/1686301053873.webp"
-          width={500}
-          height={500}
-          alt="image-about"
+          src="https://juan-sesu-ecommerce.s3.amazonaws.com/1686304302028.png"
+          fill={true}
+          alt="-about-image"
+          className={styles.img}
         />
+        <div className={styles.imgText}>
+          <h1 className={styles.imgTitle}>Digital Storytellers</h1>
+          <h2 className={styles.imgDesc}>
+            Handcrafting award winning digital experiences
+          </h2>
+        </div>
       </div>
-      <div className={styles.imgTexy}>
-        <h1 className={styles.imgTitle}>Digital Storytellers</h1>
-        <h2 className={styles.imgDesc}>
-          Handcrafting award winning digital experiencies
-        </h2>
-      </div>
-
       <div className={styles.textContainer}>
         <div className={styles.item}>
           <h1 className={styles.title}>Who Are We?</h1>
           <p className={styles.desc}>
-            Lorem Ipsum es simplemente el texto de relleno de las imprentas y
-            archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar
-            de las industrias desde el año 1500, cuando un impresor (N. del T.
-            persona que se dedica a la imprenta) desconocido usó una galería de
-            textos y los mezcló de tal manera que logró hacer un libro de textos
-            especimen.
-            <br /> <br />
-            No sólo sobrevivió 500 años, sino que tambien ingresó como texto de
-            relleno en documentos electrónicos, quedando esencialmente igual al
-            original.
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus
+            quae dolor, optio voluptatibus magnam iure esse tempora beatae. A
+            suscipit eos. Animi quibusdam cum omnis officiis voluptatum quo ea
+            eveniet? Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            Ducimus quae dolor, optio voluptatibus magnam iure esse tempora
+            beatae, a suscipit eos. Animi quibusdam cum omnis officiis
+            <br />
+            <br />
+            voluptatum quo ea eveniet? Lorem ipsum dolor sit amet consectetur
+            adipisicing elit. Ducimus quae dolor, optio voluptatibus magnam iure
+            esse tempora beatae, a suscipit eos. Animi quibusdam cum omnis
+            officiis voluptatum quo ea eveniet?
           </p>
         </div>
         <div className={styles.item}>
           <h1 className={styles.title}>What We Do?</h1>
           <p className={styles.desc}>
-            Lorem Ipsum es simplemente el texto de relleno de las imprentas y
-            archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar
-            de las industrias desde el año 1500, cuando un impresor (N. del T.
-            persona que se dedica a la imprenta) desconocido usó una galería de
-            textos y los mezcló de tal manera que logró hacer un libro de textos
-            especimen.
-            <br /> <br />
-            No sólo sobrevivió 500 años, sino que tambien ingresó como texto de
-            relleno en documentos electrónicos, quedando esencialmente igual al
-            original.
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus
+            quae dolor, optio voluptatibus magnam iure esse tempora beatae, a
+            suscipit eos. Animi quibusdam cum omnis officiis voluptatum quo ea
+            eveniet? Lorem ipsum dolor sit amet consectetur adipisicing elit. -
+            Creative Illustrations
+            <br />
+            <br /> - Dynamic Websites
+            <br />
+            <br /> - Fast and Handy
+            <br />
+            <br /> - Mobile Apps
           </p>
+          <Button url="/contact" text="Contact" />
         </div>
       </div>
     </div>
