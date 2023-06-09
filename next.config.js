@@ -1,7 +1,14 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    domains: ["images.pixels.com"],
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "juan-sesu-ecommerce.s3.amazonaws.com",
+        port: "",
+        pathname: "/**",
+      },
+    ],
   },
 };
 
