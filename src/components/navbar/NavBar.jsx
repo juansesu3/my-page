@@ -1,9 +1,10 @@
 "use client";
 import Link from "next/link";
 import React from "react";
-import styles from './page.module.css';
+import styles from "./page.module.css";
 import Image from "next/image";
-import Logo from "../../../public/negiupp-hi.png"
+import Logo from "../../../public/negiupp-hi.png";
+import DarkModetoggle from "../DarkModeToggle/DarkModetoggle";
 
 const links = [
   {
@@ -40,16 +41,19 @@ const links = [
 
 const NavBar = () => {
   return (
-    <div  className={styles.container}>
-      <Link href={"/"} className={styles.logo}><Image width={55} height={35} src={Logo} alt="img-logo"/></Link>
-      <div  className={styles.links}>
+    <div className={styles.container}>
+      <Link href={"/"} className={styles.logo}>
+        <Image width={55} height={35} src={Logo} alt="img-logo" />
+      </Link>
+      <div className={styles.links}>
+        <DarkModetoggle />
         {links.map((link) => (
           <Link key={link.slug} href={`${link.url}`}>
             {link.title}
           </Link>
         ))}
         <button
-        className={styles.logout}
+          className={styles.logout}
           onClick={() => {
             console.log("Logged out");
           }}
