@@ -1,10 +1,32 @@
-import React from 'react'
-import styles from './page.module.css';
+"use client";
+import React, { useEffect, useState } from "react";
+import styles from "./page.module.css";
 
 const Dashboard = () => {
-  return (
-    <div className={styles.container}>Dashboard</div>
-  )
-}
+  const [data, setData] = useState([]);
+  const [err, setErr] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
-export default Dashboard
+  useEffect(() => {
+    const getData = async () => {
+      setIsLoading(true);
+      const res = await fetch("https://jsonplaceholder.typicode.com/posts", {
+        cache: "no-store",
+      });
+
+      if (res.ok) {
+        setErr(true);
+      }
+      const data = await res.json();
+      setData(data);
+      setErr(false);
+     
+    };
+    getData();
+  }, []);
+  console.log(data);
+
+  return <div className={styles.container}>Dashboard</div>;
+};
+
+export default Dashboard;
