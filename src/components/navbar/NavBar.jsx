@@ -1,10 +1,11 @@
 "use client";
 import Link from "next/link";
-import React from "react";
+import React, { useContext } from "react";
 import styles from "./page.module.css";
 import Image from "next/image";
 import Logo from "../../../public/negiupp-hi.png";
 import DarkModetoggle from "../DarkModeToggle/DarkModetoggle";
+import { ThemeContext } from "@/context/ThemeContext";
 
 const links = [
   {
@@ -38,12 +39,23 @@ const links = [
     url: "/dashboard",
   },
 ];
-
+//
 const NavBar = () => {
+  const { toggle, mode } = useContext(ThemeContext);
+
   return (
     <div className={styles.container}>
       <Link href={"/"} className={styles.logo}>
-        <Image width={55} height={35} src={Logo} alt="img-logo" />
+        <Image
+          width={55}
+          height={35}
+          src={
+            mode === "light"
+              ? "https://juan-sesu-ecommerce.s3.amazonaws.com/1686503321445.png"
+              : "https://juan-sesu-ecommerce.s3.amazonaws.com/1686503403143.png"
+          }
+          alt="img-logo"
+        />
       </Link>
       <div className={styles.links}>
         <DarkModetoggle />
