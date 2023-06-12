@@ -6,6 +6,7 @@ import Image from "next/image";
 import Logo from "../../../public/negiupp-hi.png";
 import DarkModetoggle from "../DarkModeToggle/DarkModetoggle";
 import { ThemeContext } from "@/context/ThemeContext";
+import { signOut, useSession } from "next-auth/react";
 
 const links = [
   {
@@ -41,6 +42,7 @@ const links = [
 ];
 //
 const NavBar = () => {
+  const session = useSession();
   const { toggle, mode } = useContext(ThemeContext);
 
   return (
@@ -64,14 +66,11 @@ const NavBar = () => {
             {link.title}
           </Link>
         ))}
-        <button
-          className={styles.logout}
-          onClick={() => {
-            console.log("Logged out");
-          }}
-        >
-          Logout
-        </button>
+        {session.status === "authenticated" && (
+          <button className={styles.logout} onClick={signOut}>
+            Logout
+          </button>
+        )}
       </div>
     </div>
   );
