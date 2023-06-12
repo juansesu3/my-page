@@ -32,8 +32,7 @@ const Dashboard = () => {
 
   const fetcher = (...args) => fetch(...args).then((res) => res.json());
 
-
-  const { data, error, isLoading } = useSWR(
+  const { data, mutate, error, isLoading } = useSWR(
     `/api/posts?username=${session?.data?.user?.name}`,
     fetcher
   );
@@ -67,6 +66,19 @@ const Dashboard = () => {
           username: session.data.user.name,
         }),
       });
+      mutate();
+      e.target.reset();
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  const handleDelete = async (id) => {
+    try {
+      await fetch(`/api/posts/${id}`, {
+        method: "DELETE",
+      });
+      mutate();
     } catch (err) {
       console.log(err);
     }
@@ -79,16 +91,25 @@ const Dashboard = () => {
           {isLoading
             ? "loading"
             : data?.map((post) => (
-                <div key={post._id} className={styles.posts}>
+                <div key={post._id} className={styles.post}>
                   <div className={styles.imgContainer}>
-               <Image src={post.img} alt="-article-image" width={200} height={200} />
+                    <Image
+                      src={post.img}
+                      alt="-article-image"
+                      fill={true}
+                      className={styles.img}
+                    />
                   </div>
                   <h2 className={styles.postTitle}>{post.title}</h2>
-                  <span className={styles.delete}>X</span>
+                  <span
+                    className={styles.delete}
+                    onClick={() => handleDelete(post._id)}
+                  >
+                    X
+                  </span>
                 </div>
               ))}
         </div>
-
 
         <form className={styles.new} onSubmit={handleSubmit}>
           <h1>Add New Post</h1>
@@ -101,7 +122,7 @@ const Dashboard = () => {
           <input type="text" placeholder="Image" className={styles.input} />
           <textarea
             placeholder="Content"
-            className={styles.textarea}
+            className={styles.textArea}
             cols="30"
             rows="10"
           ></textarea>
