@@ -2,9 +2,9 @@ import Image from "next/image";
 import styles from "./page.module.css";
 import { notFound } from "next/navigation";
 
-const getData = async (slug) => {
+const getData = async (id) => {
   const res = await fetch(
-    `https://jsonplaceholder.typicode.com/posts/${slug}`,
+    `http://localhost:3000/api/posts/${id}`,
     {
       cache: "no-store",
     }
@@ -17,7 +17,7 @@ const getData = async (slug) => {
 };
 
 const BlogPost = async ({ params }) => {
-  const data = await getData(params.slug);
+  const data = await getData(params.id);
 
   console.log({ data });
 

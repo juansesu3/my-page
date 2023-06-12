@@ -5,7 +5,7 @@ import Image from "next/image";
 import { items } from "./data.js";
 import { notFound } from "next/navigation";
 
-console.log({items})
+console.log({ items });
 
 const getData = (cat) => {
   const data = items[cat];
