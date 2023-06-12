@@ -8,8 +8,8 @@ const getData = async () => {
     cache: "no-store",
   });
 
-  if (res.ok) {
-    throw new Error("Failed to fetch data")
+  if (!res.ok) {
+    throw new Error("Failed to fetch data");
   }
   return res.json();
 };
@@ -19,7 +19,11 @@ const Blog = async () => {
   return (
     <div className={styles.mainContainer}>
       {data.map((item) => (
-        <Link href="/blog/testId" className={styles.container} key={item.id}>
+        <Link
+          href={`/blog/${item.id}`}
+          className={styles.container}
+          key={item.id}
+        >
           <div className={styles.imgContainer}>
             <Image
               src="https://juan-sesu-ecommerce.s3.amazonaws.com/1686076717056.jpeg"
@@ -31,7 +35,7 @@ const Blog = async () => {
           </div>
           <div className={styles.content}>
             <h1 className={styles.title}>{item.title}</h1>
-            <p className={styles.desc}>Desc</p>
+            <p className={styles.body}>Desc</p>
           </div>
         </Link>
       ))}

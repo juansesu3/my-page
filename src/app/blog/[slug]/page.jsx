@@ -1,11 +1,14 @@
 import Image from "next/image";
 import styles from "./page.module.css";
-import {notFound} from "next/navigation";
+import { notFound } from "next/navigation";
 
 const getData = async (slug) => {
-  const res = await fetch(`https://jsonplaceholder.typicode.com/posts/${slug}`, {
-    cache: "no-store",
-  });
+  const res = await fetch(
+    `https://jsonplaceholder.typicode.com/posts/${slug}`,
+    {
+      cache: "no-store",
+    }
+  );
 
   if (!res.ok) {
     return notFound();
@@ -16,7 +19,7 @@ const getData = async (slug) => {
 const BlogPost = async ({ params }) => {
   const data = await getData(params.slug);
 
-  console.log({data})
+  console.log({ data });
 
   return (
     <div className={styles.container}>
