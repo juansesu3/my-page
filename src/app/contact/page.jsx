@@ -3,6 +3,10 @@ import styles from "./page.module.css";
 import Image from "next/image";
 import ImgContact from "../../../public/contact.png";
 import Button from "@/components/button/Button";
+export const metadata = {
+  title: "NeGiUpp Contact Information",
+  description: "This is the contact information",
+};
 const Contacto = () => {
   return (
     <div className={styles.container}>
