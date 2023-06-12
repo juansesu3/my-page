@@ -31,6 +31,8 @@ const Dashboard = () => {
   const router = useRouter();
 
   const fetcher = (...args) => fetch(...args).then((res) => res.json());
+
+
   const { data, error, isLoading } = useSWR(
     `/api/posts?username=${session?.data?.user?.name}`,
     fetcher
@@ -51,7 +53,7 @@ const Dashboard = () => {
 
     const title = e.target[0].value;
     const desc = e.target[1].value;
-    const img = e.target[1].value;
+    const img = e.target[2].value;
     const content = e.target[3].value;
 
     try {
@@ -79,13 +81,15 @@ const Dashboard = () => {
             : data?.map((post) => (
                 <div key={post._id} className={styles.posts}>
                   <div className={styles.imgContainer}>
-               <Image src={'/'} alt="-article-image" width={200} height={200} />
+               <Image src={post.img} alt="-article-image" width={200} height={200} />
                   </div>
                   <h2 className={styles.postTitle}>{post.title}</h2>
                   <span className={styles.delete}>X</span>
                 </div>
               ))}
         </div>
+
+
         <form className={styles.new} onSubmit={handleSubmit}>
           <h1>Add New Post</h1>
           <input type="text" placeholder="Title" className={styles.input} />
