@@ -19,36 +19,28 @@ const getData = async (id) => {
 const BlogPost = async ({ params }) => {
   const data = await getData(params.id);
 
-  console.log({ data });
-
   return (
     <div className={styles.container}>
       <div className={styles.top}>
         <div className={styles.info}>
           <h1 className={styles.title}>{data.title}</h1>
           <p className={styles.desc}>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste
-            accusantium dolor, distinctio excepturi iusto atque sunt non tempora
-            deserunt earum veniam illum quod. Culpa tenetur rem dolorem facere
-            suscipit! Atque placeat enim sint magni corporis consequatur eos
-            magnam similique animi? Amet dolor optio rem vero? Ducimus numquam,
-            nihil, pariatur perferendis eum libero tempore deserunt, eos amet
-            totam in aut fugit?
+           {data.desc}
           </p>
           <div className={styles.author}>
             <Image
-              src="https://juan-sesu-ecommerce.s3.amazonaws.com/1686396482134.jpg"
+              src={data.img}
               alt=""
               width={40}
               height={40}
               className={styles.avatar}
             />
-            <span className={styles.username}>Jhon Doe</span>
+            <span className={styles.username}>{data.username}</span>
           </div>
         </div>
         <div className={styles.imageContainer}>
           <Image
-            src="https://juan-sesu-ecommerce.s3.amazonaws.com/1686396482134.jpg"
+            src={data.img}
             alt=""
             fill={true}
             className={styles.image}
@@ -57,23 +49,7 @@ const BlogPost = async ({ params }) => {
       </div>
       <div className={styles.content}>
         <p className={styles.text}>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta velit
-          eaque, omnis tempore, accusamus dolor nam hic eveniet maiores commodi
-          consectetur expedita labore vero est animi, repellendus inventore?
-          Molestias, cupiditate.
-          <br />
-          <br />
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta velit
-          eaque, omnis tempore, accusamus dolor nam hic eveniet maiores commodi
-          consectetur expedita labore vero est animi, repellendus inventore?
-          Molestias, cupiditate. Lorem ipsum dolor sit amet consectetur
-          adipisicing elit. Soluta velit eaque, omnis tempore, accusamus dolor
-          nam hic eveniet maiores commodi consectetur expedita labore vero est
-          animi, repellendus inventore? Molestias, cupiditate. Lorem ipsum dolor
-          sit amet consectetur adipisicing elit. Soluta velit eaque, omnis
-          tempore, accusamus dolor nam hic eveniet maiores commodi consectetur
-          expedita labore vero est animi, repellendus inventore? Molestias,
-          cupiditate.
+          {data.content}
         </p>
       </div>
     </div>
