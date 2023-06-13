@@ -31,7 +31,8 @@ const Category = ({ params }) => {
           <div className={styles.imgConatainer}>
             <Image
               src={item.image}
-              fill={true}
+              width={400}
+              height={400}
               className={styles.img}
               alt="iñustrations-image"
             />

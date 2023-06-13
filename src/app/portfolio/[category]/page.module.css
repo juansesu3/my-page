@@ -7,23 +7,37 @@
 
 .item {
     display: flex;
+    flex-direction: column-reverse;
     gap: 50px;
     margin-top: 50px;
     margin-bottom: 100px;
 }
 
-.item:nth-child(2n+1) {
-    flex-direction: row-reverse;
+@media screen and (min-width: 768px) {
+    .item {
+        display: flex;
+        flex-direction: inherit;
+        gap: 50px;
+        margin-top: 50px;
+        margin-bottom: 100px;
+    }
+
+    .item:nth-child(2n+1) {
+        flex-direction: row-reverse;
+    }
+
+    .imgConatainer {
+        flex: 1;
+        height: 500px;
+        position: relative;
+    }
+
 }
 
-.imgConatainer {
-    flex: 1;
-    height: 500px;
-    position: relative;
-}
 
 .img {
     object-fit: cover;
+    width: 100%;
 }
 
 .content {
