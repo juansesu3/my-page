@@ -105,12 +105,12 @@ const Dashboard = () => {
                     className={styles.delete}
                     onClick={() => handleDelete(post._id)}
                   >
-                    X
+                    Delete
                   </span>
                 </div>
               ))}
         </div>
-
+<hr/>
         <form className={styles.new} onSubmit={handleSubmit}>
           <h1>Add New Post</h1>
           <input type="text" placeholder="Title" className={styles.input} />
