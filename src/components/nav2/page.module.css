@@ -1,5 +1,5 @@
 .container {
-    background-color: #222;
+    background-color: #111;
     position: sticky;
     top: 0;
     z-index: 10;
@@ -25,18 +25,12 @@
     left: 0;
     right: 0;
     padding: 70px 20px 20px;
-    background-color: #222;
+    background-color: #111;
 }
-.navStylenone{
+
+.navStylenone {
     display: none;
-    gap: 15px;
-    position: fixed;
-    top: 0px;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    padding: 70px 20px 20px;
-    background-color: #222;
+   
 }
 
 @media screen and (min-width: 768px) {
@@ -49,12 +43,22 @@
 
 
 .navLink {
-    display: block;
+    display: flex;
+    justify-content: space-around;
     color: #aaa;
     text-decoration: none;
     min-width: 30px;
     padding: 10px 0;
+    margin: 0 auto;
+}
 
+.navStyle button {
+    padding: 5px;
+    border: none;
+    background-color: #53c28b;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 3px;
 }
 
 @media screen and (min-width: 768px) {
@@ -62,7 +66,9 @@
         padding: 0;
     }
 }
-.navbutton{
+
+
+.navbutton {
     background-color: transparent;
     width: 30px;
     height: 30px;
@@ -74,7 +80,7 @@
 }
 
 @media screen and (min-width: 768px) {
-    .navbutton{
-    display: none;
+    .navbutton {
+        display: none;
+    }
 }
-  }

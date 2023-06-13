@@ -60,20 +60,22 @@ const Navbar2 = () => {
           />
         </Link>
         <DarkModeToggle />
-        <div className={mobileNavActive?styles.navStylenone:styles.navStyle} >
+        <div
+          className={mobileNavActive ? styles.navStylenone : styles.navStyle}
+        >
           {links.map((link) => (
             <Link className={styles.navLink} key={link.slug} href={link.url}>
               {link.title}
             </Link>
+            
           ))}
-           {session.status === "authenticated" && (
-            <button className={styles.logout} onClick={signOut}>
+          {session.status === "authenticated" && (
+            <button className={styles.navLink} onClick={signOut}>
               Logout
             </button>
           )}
         </div>
         <div className={styles.sideicons}>
-         
           <button
             className={styles.navbutton}
             onClick={() => setMobileNavActive((prev) => !prev)}
