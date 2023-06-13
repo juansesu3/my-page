@@ -68,6 +68,13 @@ const Navbar2 = () => {
     ? styles.navStyle
     : styles.navStyleL;
 
+  let cla =
+    width < 768
+      ? className
+      : mode === "light"
+      ? styles.navStyle
+      : styles.navStyleD;
+
   return (
     <div className={mode === "dark" ? styles.container : styles.containerL}>
       <div className={styles.wrapper}>
@@ -85,7 +92,7 @@ const Navbar2 = () => {
         </Link>
         <DarkModeToggle />
 
-        <div className={width < 768 ? className : styles.navStyle}>
+        <div className={cla}>
           {links.map((link) => (
             <Link
               onClick={() => setMobileNavActive((prev) => !prev)}

@@ -16,6 +16,7 @@
 
 .logo {
     position: relative;
+   
     z-index: 3;
 }
 
@@ -35,6 +36,7 @@
     left: 0;
     right: 0;
     padding: 70px 20px 20px;
+    transition: 1s all;
     background-color: #111;
 }
 
@@ -47,6 +49,7 @@
     left: 0;
     right: 0;
     padding: 70px 20px 20px;
+    transition: 1s all;
     background-color: white;
 }
 
@@ -55,16 +58,24 @@
 
 }
 
-
 @media screen and (min-width: 768px) {
     .navStyle {
         display: flex;
+        align-items: center;
         position: static;
         padding: 0;
-        background-color: transparent;
+        background-color: white;
+    }
+
+    .navStyleD {
+        display: flex;
+        gap: 15px;
+        position: static;
+        padding: 0;
+        background-color: #111;
+        transition: 1s all;
     }
 }
-
 
 .navLink {
     display: flex;
@@ -77,9 +88,9 @@
     margin: 0 auto;
 }
 
-.navStyle button {
+.logout {
     display: flex;
-    margin: 10px auto 0 auto;
+    margin: 0px auto 0 auto;
     padding: 5px;
     border: none;
     background-color: #53c28b;
@@ -87,19 +98,6 @@
     cursor: pointer;
     border-radius: 3px;
 }
-
-.navStyleL button {
-    display: flex;
-    margin: 10px auto 0 auto;
-    padding: 5px;
-    border: none;
-    background-color: #53c28b;
-    color: #fff;
-    cursor: pointer;
-    border-radius: 3px;
-}
-
-
 
 @media screen and (min-width: 768px) {
     .navLink {
