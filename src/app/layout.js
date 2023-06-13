@@ -20,8 +20,9 @@ export default function RootLayout({ children }) {
       <body className={inter.className}>
         <ThemeProvider>
          <AuthProvider>
+         
           <div className="container">
-            <Navbar2/>
+          <Navbar2/>
             {children}
             <Footer />
           </div>
