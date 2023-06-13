@@ -1,6 +1,8 @@
 .mainTitle {
     font-size: 60px;
+    margin-bottom: 20px;
 }
+
 @media screen and (min-width: 768px) {
     .mainTitle {
         font-size: 100px;
@@ -35,9 +37,10 @@
     height: 400px;
     position: relative;
     background-size: cover !important;
-    
+
 
 }
+
 /*
 .item:nth-child(1) {
     background: url('https://juan-sesu-ecommerce.s3.amazonaws.com/1686322390104.png');
@@ -62,6 +65,6 @@
     font-weight: bold;
 }
 
-.item:hover .title{
+.item:hover .title {
     color: #53c28b;
 }

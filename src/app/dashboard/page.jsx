@@ -110,7 +110,7 @@ const Dashboard = () => {
                 </div>
               ))}
         </div>
-<hr/>
+        <hr />
         <form className={styles.new} onSubmit={handleSubmit}>
           <h1>Add New Post</h1>
           <input type="text" placeholder="Title" className={styles.input} />

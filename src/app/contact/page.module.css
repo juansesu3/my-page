@@ -1,12 +1,13 @@
 .container{
     margin: 0 auto;
+    gap: 0;
   
 }
 .title{
     font-size: 60px;
-    margin-bottom: 100px;
+    margin-bottom: 0px;
     text-align: center;
-    margin: 1px0 auto;
+    margin: 0 auto 20px;
 }
 
 .content{
@@ -42,8 +43,6 @@
     margin: 0 auto;
    
 }
-
-
 
 .input, .textArea{
     padding: 10px;
