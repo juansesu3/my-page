@@ -1,5 +1,5 @@
 "use client";
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import styles from "./page.module.css";
 import Link from "next/link";
 import DarkModeToggle from "../DarkModeToggle/DarkModetoggle";
@@ -45,6 +45,23 @@ const Navbar2 = () => {
   const session = useSession();
   const { toggle, mode } = useContext(ThemeContext);
 
+  const [width, setWidth] = useState(null);
+
+  useEffect(() => {
+    // Función para manejar el evento de cambio de tamaño de la ventana
+    const handleResize = () => {
+      setWidth(window.innerWidth);
+    };
+    // Agregar el evento de cambio de tamaño de la ventana
+    window.addEventListener("resize", handleResize);
+    // Obtener la medida de la ventana al cargar el componente
+    setWidth(window.innerWidth);
+    // Eliminar el evento de cambio de tamaño de la ventana al desmontar el componente
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
   let className = mobileNavActive
     ? styles.navStylenone
     : mode === "dark"
@@ -54,7 +71,7 @@ const Navbar2 = () => {
   return (
     <div className={mode === "dark" ? styles.container : styles.containerL}>
       <div className={styles.wrapper}>
-        <Link href={"/"} className={styles.logo}  onClick={() => setMobileNavActive((prev) => !prev)}>
+        <Link href={"/"} className={styles.logo}>
           <Image
             width={55}
             height={35}
@@ -68,7 +85,7 @@ const Navbar2 = () => {
         </Link>
         <DarkModeToggle />
 
-        <div className={className}>
+        <div className={width < 768 ? className : styles.navStyle}>
           {links.map((link) => (
             <Link
               onClick={() => setMobileNavActive((prev) => !prev)}
@@ -86,25 +103,27 @@ const Navbar2 = () => {
           )}
         </div>
         <div className={styles.sideicons}>
-          <button
-            className={mode === "dark" ? styles.navbutton : styles.navbuttonL}
-            onClick={() => setMobileNavActive((prev) => !prev)}
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              strokeWidth={1.5}
-              stroke="currentColor"
-              className="w-6 h-6"
+          {width < 768 && (
+            <button
+              className={mode === "dark" ? styles.navbutton : styles.navbuttonL}
+              onClick={() => setMobileNavActive((prev) => !prev)}
             >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
-              />
-            </svg>
-          </button>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                strokeWidth={1.5}
+                stroke="currentColor"
+                className="w-6 h-6"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+                />
+              </svg>
+            </button>
+          )}
         </div>
       </div>
     </div>
