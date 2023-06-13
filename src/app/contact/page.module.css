@@ -1,10 +1,12 @@
 .container{
+    margin: 0 auto;
   
 }
 .title{
     font-size: 60px;
     margin-bottom: 100px;
     text-align: center;
+    margin: 1px0 auto;
 }
 
 .content{
@@ -36,7 +38,24 @@
     display: flex;
     flex-direction: column;
     gap: 20px;
+    max-width: 300px;
+    margin: 0 auto;
+   
 }
+@media screen and (min-width: 768px) {
+    .form{
+        flex:1;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        max-width: 300px;
+        
+       
+    }
+    
+}
+
+
 
 .input, .textArea{
     padding: 10px;
@@ -46,4 +65,5 @@
     color: #bbb;
     border: 3px solid #bbb;
     font-weight: bold;
+    max-width: 300px;
 }
