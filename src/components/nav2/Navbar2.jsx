@@ -109,8 +109,9 @@ const Navbar2 = () => {
             </button>
           )}
         </div>
+        {width < 768 && (
         <div className={styles.sideicons}>
-          {width < 768 && (
+          
             <button
               className={mode === "dark" ? styles.navbutton : styles.navbuttonL}
               onClick={() => setMobileNavActive((prev) => !prev)}
@@ -130,8 +131,9 @@ const Navbar2 = () => {
                 />
               </svg>
             </button>
-          )}
+         
         </div>
+         )}
       </div>
     </div>
   );
