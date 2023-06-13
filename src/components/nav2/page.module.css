@@ -1,5 +1,14 @@
 .container {
+    transition: 1s all;
     background-color: #111;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.containerL {
+    transition: 1s all;
+    background-color: white;
     position: sticky;
     top: 0;
     z-index: 10;
@@ -13,6 +22,7 @@
 .wrapper {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     padding: 20px 0;
 }
 
@@ -28,9 +38,21 @@
     background-color: #111;
 }
 
+.navStyleL {
+    display: block;
+    gap: 15px;
+    position: fixed;
+    top: 0px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 70px 20px 20px;
+    background-color: white;
+}
+
 .navStylenone {
     display: none;
-   
+
 }
 
 @media screen and (min-width: 768px) {
@@ -45,6 +67,7 @@
 .navLink {
     display: flex;
     justify-content: space-around;
+    align-items: center;
     color: #aaa;
     text-decoration: none;
     min-width: 30px;
@@ -53,6 +76,8 @@
 }
 
 .navStyle button {
+    display: flex;
+    margin: 10px auto 0 auto;
     padding: 5px;
     border: none;
     background-color: #53c28b;
@@ -61,12 +86,28 @@
     border-radius: 3px;
 }
 
+.navStyleL button {
+    display: flex;
+    margin: 10px auto 0 auto;
+    padding: 5px;
+    border: none;
+    background-color: #53c28b;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 3px;
+}
+
+
+
 @media screen and (min-width: 768px) {
     .navLink {
         padding: 0;
     }
-}
 
+    .navStyle button {
+        margin-top: 0px;
+    }
+}
 
 .navbutton {
     background-color: transparent;
@@ -74,6 +115,17 @@
     height: 30px;
     border: 0;
     color: white;
+    cursor: pointer;
+    position: relative;
+    z-index: 3;
+}
+
+.navbuttonL {
+    background-color: transparent;
+    width: 30px;
+    height: 30px;
+    border: 0;
+    color: #111;
     cursor: pointer;
     position: relative;
     z-index: 3;

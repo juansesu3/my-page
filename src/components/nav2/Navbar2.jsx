@@ -44,10 +44,17 @@ const Navbar2 = () => {
   const [mobileNavActive, setMobileNavActive] = useState(false);
   const session = useSession();
   const { toggle, mode } = useContext(ThemeContext);
+
+  let className = mobileNavActive
+    ? styles.navStylenone
+    : mode === "dark"
+    ? styles.navStyle
+    : styles.navStyleL;
+
   return (
-    <div className={styles.container}>
+    <div className={mode === "dark" ? styles.container : styles.containerL}>
       <div className={styles.wrapper}>
-        <Link href={"/"} className={styles.logo}>
+        <Link href={"/"} className={styles.logo}  onClick={() => setMobileNavActive((prev) => !prev)}>
           <Image
             width={55}
             height={35}
@@ -60,24 +67,27 @@ const Navbar2 = () => {
           />
         </Link>
         <DarkModeToggle />
-        <div
-          className={mobileNavActive ? styles.navStylenone : styles.navStyle}
-        >
+
+        <div className={className}>
           {links.map((link) => (
-            <Link className={styles.navLink} key={link.slug} href={link.url}>
+            <Link
+              onClick={() => setMobileNavActive((prev) => !prev)}
+              className={styles.navLink}
+              key={link.slug}
+              href={link.url}
+            >
               {link.title}
             </Link>
-            
           ))}
           {session.status === "authenticated" && (
-            <button className={styles.navLink} onClick={signOut}>
+            <button className={styles.logout} onClick={signOut}>
               Logout
             </button>
           )}
         </div>
         <div className={styles.sideicons}>
           <button
-            className={styles.navbutton}
+            className={mode === "dark" ? styles.navbutton : styles.navbuttonL}
             onClick={() => setMobileNavActive((prev) => !prev)}
           >
             <svg
