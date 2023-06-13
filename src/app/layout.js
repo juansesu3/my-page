@@ -4,6 +4,7 @@ import { Inter, Roboto, Poppins } from "next/font/google";
 import Footer from "@/components/footer/Footer";
 import { ThemeProvider } from "@/context/ThemeContext";
 import AuthProvider from "@/components/AuthProvider/AuthProvider";
+import Navbar2 from "@/components/nav2/Navbar2";
 
 
 const inter = Inter({ subsets: ["latin"] });
@@ -20,7 +21,8 @@ export default function RootLayout({ children }) {
         <ThemeProvider>
          <AuthProvider>
           <div className="container">
-            <NavBar />
+            <Navbar2/>
+            {/*<NavBar />*/}
             {children}
             <Footer />
           </div>

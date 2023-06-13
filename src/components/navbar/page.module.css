@@ -2,10 +2,9 @@
     height: 100px;
     display: flex;
     justify-content: space-between;
-    align-items: center;
-   
-   
+    align-items: center;  
 }
+
 
 .logo{
     font-weight: bold;
@@ -17,6 +16,7 @@
     align-items: center;
     gap: 20px;
 }
+
 
 .logout{
     padding: 5px;

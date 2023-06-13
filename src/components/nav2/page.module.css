@@ -1,0 +1,80 @@
+.container {
+    background-color: #222;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.logo {
+    position: relative;
+    z-index: 3;
+}
+
+.wrapper {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 0;
+}
+
+.navStyle {
+    display: block;
+    gap: 15px;
+    position: fixed;
+    top: 0px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 70px 20px 20px;
+    background-color: #222;
+}
+.navStylenone{
+    display: none;
+    gap: 15px;
+    position: fixed;
+    top: 0px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 70px 20px 20px;
+    background-color: #222;
+}
+
+@media screen and (min-width: 768px) {
+    .navStyle {
+        display: flex;
+        position: static;
+        padding: 0;
+    }
+}
+
+
+.navLink {
+    display: block;
+    color: #aaa;
+    text-decoration: none;
+    min-width: 30px;
+    padding: 10px 0;
+
+}
+
+@media screen and (min-width: 768px) {
+    .navLink {
+        padding: 0;
+    }
+}
+.navbutton{
+    background-color: transparent;
+    width: 30px;
+    height: 30px;
+    border: 0;
+    color: white;
+    cursor: pointer;
+    position: relative;
+    z-index: 3;
+}
+
+@media screen and (min-width: 768px) {
+    .navbutton{
+    display: none;
+}
+  }
